@@ -8,7 +8,7 @@ There are currently three models on the bench:
 
 The common configuration is called DBGYRE which is an idealized configuration to be used with different numerical ocean models. It was first introduced as a "*Double-Gyre*" configuration by [Levy et al. (2010)][Levy2010-cite] using the [NEMO][NEMO-www] ocean model. It was then adapted and refined for and implemented into [FESOM][FESOM-www] ocean model as "*toy_dbgyre*" by [Ekatarina Bagaeva et al. (2024)][Ekatarina-cite].
 
-The *DBGYRE* configuration provided by this project have been modified in such a way that the resulting outcomes are as similar as possible between the three emodel branches *FESOM*, *NEMO* and ICON that are currently supported.
+The *DBGYRE* configuration and the model specifics provided by this project have been modified in such a way that the resulting outcomes are as similar as possible between the three model branches *FESOM*, *NEMO* and ICON that are currently supported.
 
 
 The general characteristics of *DBGYRE* are[^change]:
