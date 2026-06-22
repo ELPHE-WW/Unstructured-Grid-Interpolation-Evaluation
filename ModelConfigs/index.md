@@ -6,7 +6,7 @@ There are currently three models on the bench:
 - NEMO
 - ICON
 
-The common configuration is called DBGYRE which is an idealized configuration to be used with different numerical ocean models. It was first introduced as a "*Double-Gyre*" configuration by [Levy et al. (2010)][Levy2010-cite] using the [NEMO][NEMO-www] ocean model. It was then adapted and refined for and implemented into [FESOM][FESOM-www] ocean model as "*toy_dbgyre*" by [Ekatarina Bagaeva et al. (2024)][Ekatarina-cite].
+The common configuration is called DBGYRE which is an idealized configuration to be used with different numerical ocean models. It was first introduced as a "*Double-Gyre*" configuration by [Levy et al. (2010)][Levy2010-cite] using the [NEMO][NEMO-www] ocean model. It was then adapted and refined for and implemented into [FESOM][FESOM-www] ocean model as "*toy_dbgyre*" by [Ekatarina Bagaeva et al. (2024)][Ekatarina-cite]. 
 
 The *DBGYRE* configuration and the model specifics provided by this project have been modified in such a way that the resulting outcomes are as similar as possible between the three model branches *FESOM*, *NEMO* and ICON that are currently supported.
 
@@ -23,7 +23,7 @@ The general characteristics of *DBGYRE* are[^change]:
 - Linearised equation of state
 - Coriolis $\beta$-plane
 - Flat bottom
-- Vertical mixing is based on Richardson number ([Pacanowski & Philander 1981 ![doi](assets/img/doi-grey-small.svg)](PP1981-cite))
+- Vertical mixing is based on Richardson number ([Pacanowski & Philander (1981)](PP1981-cite))
 - The lateral boundary condition set to *free-slip*
 - ...
 
