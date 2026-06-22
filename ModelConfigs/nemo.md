@@ -15,9 +15,9 @@ Currently, the [NEMO v5](https://forge.nemo-ocean.eu/nemo/nemo/-/tree/5.0?ref_ty
 - Vertical mixing
 
   - NEMO: `ln_zdfric   = .true.` (this is Pacanowski & Philander 1981)
-    - $\nu_0 = 0.01 =$ `rn_avmri = 100.e-4` 
-    - $\nu_b = 0.005 =$ `rn_avm0 = 0.0001`
-    - $\kappa_b = 1.2 \times 10^{-5} =$ `rn_avt0 = 1.0e-5`
+    - $\nu_0 = 0.01 =$ `rn_avmri = 100.e-4`  ==used to be `0.005` in NEMO==
+    - $\nu_b = 0.0001 =$ `rn_avm0 = 0.0001` ==used to be `1.2e-5` in NEMO==
+    - $\kappa_b = 1.0 \times 10^{-5} =$ `rn_avt0 = 1.0e-5`
     - $\alpha = 5.0 =$ `rn_alp = 5.`
     - $n = 2 =$ `nn_ric = 2`
 
