@@ -6,24 +6,24 @@ Currently, the [NEMO v5](https://forge.nemo-ocean.eu/nemo/nemo/-/tree/5.0?ref_ty
 
 
 
-**WORK-IN-PROGRESS** (2026-06-22)
+**WORK-IN-PROGRESS** (2026-06-24)
 
 
 
 ## Details
 
-- Vertical mixing
+- **Vertical mixing**
 
-  - NEMO: `ln_zdfric   = .true.` (this is Pacanowski & Philander 1981)
-    - $\nu_0 = 0.01 =$ `rn_avmri = 100.e-4`  ==used to be `0.005` in NEMO==
-    - $\nu_b = 0.0001 =$ `rn_avm0 = 0.0001` ==used to be `1.2e-5` in NEMO==
-    - $\kappa_b = 1.0 \times 10^{-5} =$ `rn_avt0 = 1.0e-5`
-    - $\alpha = 5.0 =$ `rn_alp = 5.`
-    - $n = 2 =$ `nn_ric = 2`
+  - NEMO: `&namzdf ln_zdfric = .true.` (this is Pacanowski & Philander 1981) :white_check_mark:
+    - $\nu_0 = 0.01 =$ `&namzdf_ric rn_avmri = 100.e-4`  ==used to be `0.005` in NEMO== :white_check_mark:
+    - $\nu_b = 0.0001 =$ ``&namzdf rn_avm0 = 0.0001` ==used to be `1.2e-5` in NEMO== :white_check_mark:
+    - $\kappa_b = 1.0 \times 10^{-5} =$ ``&namzdf rn_avt0 = 1.0e-5` :white_check_mark:
+    - $\alpha = 5.0 =$ `&namzdf_ric rn_alp = 5.`​ :white_check_mark:
+    - $n = 2 =$ `&namzdf_ric nn_ric = 2` :white_check_mark:
 
-- linear EOS
+- **linear EOS**
 
-  - NEMO: EOS80 =>? SEOS (`a_0=1.6550e-1`, `b_0=0.`, `lambda*=0.`, `mu*=0.`,`nu=0.`)
+  - NEMO: EOS80 =>? SEOS (`a_0=1.6550e-1`, `b_0=0.`, `lambda*=0.`, `mu*=0.`,`nu=0.`) :white_check_mark:
 
     - *TRA/eosbn2.F90*:
 
@@ -44,7 +44,7 @@ Currently, the [NEMO v5](https://forge.nemo-ocean.eu/nemo/nemo/-/tree/5.0?ref_ty
 
     - `rho0        = 1026._wp` in *TRA/eosbn2.F90*
 
-    - Rewrite to (==change all occurrences and similar formulations==):   
+    - Rewrite to (==change all occurrences and similar formulations==):   :white_check_mark:
 
       ``` fortran
                   !MMS:{
@@ -61,11 +61,18 @@ Currently, the [NEMO v5](https://forge.nemo-ocean.eu/nemo/nemo/-/tree/5.0?ref_ty
                   !:MMS}
       ```
 
-- boundary condition
+- **lateral boundary condition**
 
   - NEMO: free-slip :white_check_mark:
 
-- actual resolution
+- **bottom boundary condition**
+
+  - constant linear bottom drag  `&namdrg ln_lin = .true.` with coefficient $c_b^T = (C_{d0}*U_{c0})$ on T-point (to be interpolated onto velocity points):
+    - $C_{d0} = 1.e-3$ = `&namdrg rn_Cd0` 
+    - $U_{c0} = 1.0 m/s$  = `&namdrg rn_Uc0`
+    - $\Rightarrow c_b^T = 1\times10^{-3} m s^{-1} = 0.001$ :white_check_mark:
+
+- **actual resolution**
 
   - NEMO: 19.26km
 
@@ -75,13 +82,13 @@ Currently, the [NEMO v5](https://forge.nemo-ocean.eu/nemo/nemo/-/tree/5.0?ref_ty
 
     
 
-- beta plane
+- **beta plane**
 
   - NEMO: Beta Plane : `usrdef_hgr.F90:` *beta-plane with regular grid-spacing and rotated domain ==!  (GYRE configuration)*
 
     - `omega = 7.292116e-05` 
 
-    - `zphi0 = 30._wp` :warning: double def in namelist and code?
+    - `zphi0 = 30._wp` 
 
     - `ra = 6371229._wp`
 
@@ -96,9 +103,9 @@ Currently, the [NEMO v5](https://forge.nemo-ocean.eu/nemo/nemo/-/tree/5.0?ref_ty
           pff_t(:,:) = ( zf0 + zbeta * ABS( pphit(:,:) - zphi0 ) * rad * ra ) ! f = f0 +beta* y ( y=0 at south)
       ```
 
-- Surface Fluxes
+- **Surface Fluxes**
 
-  - Heat
+  - **Heat**
 
     - General:
 

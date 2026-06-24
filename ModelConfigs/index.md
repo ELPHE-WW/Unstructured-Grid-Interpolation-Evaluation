@@ -25,6 +25,7 @@ The general characteristics of *DBGYRE* are[^change]:
 - Flat bottom
 - Vertical mixing is based on Richardson number ([Pacanowski & Philander (1981)](PP1981-cite))
 - The lateral boundary condition set to *free-slip*
+- Linear bottom drag
 - ...
 
 Details can be found in each model-specific document
